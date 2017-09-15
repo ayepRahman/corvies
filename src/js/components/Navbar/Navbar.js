@@ -41,6 +41,16 @@ class Navbar extends Component {
                         </ul>
 
                         <ul id="slide-out" className="side-nav">
+
+                            <li>
+                                <div className="user-view">
+                                    <div className="background">
+                                        <img src="images/office.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li><div className="divider"></div></li>
                             
                             <li><NavLink exact className='nav-link' to='/' href="#">Home</NavLink></li>
 
