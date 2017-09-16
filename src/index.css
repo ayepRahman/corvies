@@ -3,5 +3,17 @@
 h1 {
   color: #37474f; }
 
+nav ul a {
+  color: #26a69a !important; }
+
+nav a {
+  color: #26a69a !important; }
+
+.custom-margin, .flash-msg {
+  margin: 20px 0; }
+
 nav {
   background-color: #37474f !important; }
+
+.flash-msg h5 {
+  color: #e91e63; }
