@@ -1,28 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import $ from 'jquery';
 import { firebaseApp } from "../../../config/firbase-config"
 
 class Navbar extends Component {
-    constructor(props) {
-        super(props);
-
-        $(document).ready( () => {
-
-            // dropdown
-            $(".dropdown-button").dropdown();
-
-            // fixed side nav issues
-            $('.button-collapse').sideNav({closeOnClick: true})
-            
-            $('.button-collapse').click(removeOverlay);
-            
-            function removeOverlay() {
-            $('div[id^=sidenav-overlay]').remove();
-            }
-        })
-
-    }
+    
 
     signOut() {
         firebaseApp.auth().signOut();

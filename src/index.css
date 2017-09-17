@@ -9,6 +9,12 @@ nav ul a {
 nav a {
   color: #26a69a !important; }
 
+i {
+  padding-right: 10px; }
+
+nav .brand-logo {
+  padding-left: 10px !important; }
+
 .custom-margin, .flash-msg {
   margin: 20px 0; }
 

@@ -1,4 +1,4 @@
-import { SIGNED_IN } from "../constants/constants"
+import { SIGNED_IN } from "../constants"
 
 let user = {
     name: '',
@@ -8,9 +8,10 @@ let user = {
 export default ( state = user, action) => {
     switch (action.type) {
         case SIGNED_IN:
-            const { name, email } = action;
+            const { name, displayName, email } = action;
             user = {
                 name,
+                displayName,
                 email
             }
             return user;

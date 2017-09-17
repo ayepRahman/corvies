@@ -1,10 +1,13 @@
-import { SIGNED_IN } from "../constants/constants"
+import { SIGNED_IN } from "../constants"
 
-export function logUser(name, email) {
+
+export function logUser(name, displayName, email ) {
     const action = {
         type: SIGNED_IN,
-        name: name,
-        email: email
+        name,
+        displayName,
+        email,
     }
     return action
 }
+
