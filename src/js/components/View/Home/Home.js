@@ -16,7 +16,7 @@ class Home extends Component {
         
         axios.get(url)
             .then((response) => {
-                console.log( response.data );
+    
                 this.setState ({
                     popularMovie: response.data.results
                 })
@@ -34,7 +34,11 @@ class Home extends Component {
                 <ul>
                     {popularMovies.map((data,index) => {
                         return (
-                            <li className='' key={data.id}>{data.title}</li>
+                            <div key={data.id} className=''>
+                                <li className='' key={data.id}>{data.title}</li>
+                                <img src={"https://image.tmdb.org/t/p/w500/" + data.poster_path} alt="aha" />
+                            </div>
+                            
                         )
                     })}
                 </ul>
