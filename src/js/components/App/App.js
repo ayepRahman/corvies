@@ -25,22 +25,6 @@ const middleware = applyMiddleware(thunk, createLogger())
 const store = createStore(allReducers, middleware);
 
 
-// User Authentication / Routing
-firebaseApp.auth().onAuthStateChanged( user => {
-  if (user) {
-    console.log("User Sign In " + user );
-    // keys/values from firebase
-    const { name, displayName , email  } = user
-
-    store.dispatch( logUser(name, displayName , email) )
-
-    history.push("/movieList")
-  } else {
-    console.log("Signed Out");
-    history.replace("/")
-  }
-})
-
 class App extends Component {
     constructor(props) {
       super(props);
@@ -59,11 +43,30 @@ class App extends Component {
           function removeOverlay() {
           $('div[id^=sidenav-overlay]').remove();
           }
+
+          $('.parallax').parallax();
       })
 
   }
 
+  
+  componentWillMount() {
+    // User Authentication / Routing
+    firebaseApp.auth().onAuthStateChanged( user => {
+      if (user) {
+        console.log("User Sign In " + user );
+        // keys/values from firebase
+        const { name, displayName , email  } = user
+        store.dispatch( logUser(name, displayName , email) )
+        history.push("/movie")
+      } else {
+        console.log("Signed Out");
+        history.replace("/")
+      }
+    })
 
+  }
+  
   render() {
     return (
 
@@ -74,7 +77,7 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/signup" component={SignupPage}/>
             <Route path="/login" component={LoginPage}/>
-            <Route path="/movieList" component={MovieList}/>
+            <Route path="/movie" component={MovieList}/>
 
           </div>
         </Router>
