@@ -8,10 +8,13 @@ class MovieListPage extends Component {
     
     render() {
         return (
-            <div>
-                <div className='row custom-margin'>
-                    <UserDetails />
-                </div>
+            <div> 
+                <div className='container'>
+                    <div className='row custom-margin right-align'>
+                        <UserDetails />
+                    </div>
+                </div>    
+                
 
                 <div className='container'>
                     <div className='row'>

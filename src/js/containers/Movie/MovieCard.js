@@ -13,13 +13,33 @@ class MovieCard extends Component {
         }
         return (
             <div>
-                <ul>
+                <div className="row">
                     {searchMovies.data.map((movie) => {
                         return(
-                            <li key={movie.id} className=''>{movie.title}</li>
+                            <div key={movie.id} className="col s12 m12 l4">
+                                <div className="card horizontal z-depth-4">
+                                    <div className="card-image">
+                                        <NavLink className='nav-link' to={"/movie/:"+ movie.id} href="#">
+                                            <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" />
+                                        </NavLink>  
+                                    </div>
+                                    <div className="card-stacked">
+                                        <div className="card-content">  
+                                            <h5><b>{movie.title}</b></h5>
+                                            <p><i className="fa fa-star-o"></i>{movie.vote_average}</p>
+                                            <p><i className="fa fa-calendar"></i>{movie.release_date}</p>
+                                        </div>
+                                        <div className="card-action">
+                                            <NavLink className='nav-link' to={"/movie/:"+ movie.id} href="#">
+                                                more details...
+                                            </NavLink>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         )
                     })}  
-                </ul>
+                </div>
             </div>
         );
     }
