@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PopularMovies from "../../Movies/PopularMovies"
+import PopularMovies from "../../View/Popular/PopularMovies"
 import Banner from "../../Banner/Banner"
 import axios from "axios"
 

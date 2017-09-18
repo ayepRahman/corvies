@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from "redux-logger"
 import thunk from "redux-thunk"
-import allReducers from "../../reducers/index-reducer"
+import allReducers from "../../reducers/indexReducer"
 import { firebaseApp } from "../../../config/firbase-config"
 import { logUser } from "../../actions/index-action"
 import $ from 'jquery';
@@ -17,7 +17,8 @@ import Navbar from "../Navbar/Navbar"
 import Home from "../View/Home/Home"
 import SignupPage from "../View/Signup/SignupPage"
 import LoginPage from "../View/Login/LoginPage"
-import MovieList from "../View/Movie/MovieListPage"
+import Movie from "../View/Movie/MoviePage"
+import PopularPage from "../View/Popular/PopularPage"
 
 // const
 const history = createBrowserHistory()
@@ -77,7 +78,8 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route path="/signup" component={SignupPage}/>
             <Route path="/login" component={LoginPage}/>
-            <Route path="/movie" component={MovieList}/>
+            <Route path="/movie" component={Movie}/>
+            <Route path="/popular" component={PopularPage}/>
 
           </div>
         </Router>

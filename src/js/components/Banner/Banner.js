@@ -7,8 +7,6 @@ class Banner extends Component {
 
     render() {
 
-        console.log(bannerImg);
-
         return (
             <div id="index-banner" className="parallax-container">
                 <div className="section no-pad-bot">

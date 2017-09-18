@@ -8,29 +8,12 @@ class PopularMovies extends Component {
         console.log(popularMovie);
         let popularCard = popularMovie.map((data) => {
             return (
-                // <div className='col s12 m6 l4'>
-                //     <div className='card large' key={data.id}>
-                //         <div className='card-image'>
-                //             <NavLink className='nav-link' to={"/moviemodal/:"+ data.id} href="#">
-                //                 <img src={"https://image.tmdb.org/t/p/w500/" + data.poster_path} alt='' />
-                //             </NavLink>
-                //             <span className="card-title">{data.title}</span>
-                //         </div>
-                //         <div className='card-content'>
-                //             <p>{data.overview}</p>
-                //         </div>
-                //         <div className=''>
-                //             <NavLink className='nav-link' to={"/moviemodal/:"+ data.id} href="#">
-                //                 more details...
-                //             </NavLink>
-                //         </div>   
-                //     </div>
-                // </div>
+                
                 
                 <div key={data.id} className="col s12 m12 l4">
-                    <div className="card horizontal">
+                    <div className="card horizontal z-depth-4">
                         <div className="card-image">
-                            <NavLink className='nav-link' to={"/movie/:"+ data.id} href="#">
+                            <NavLink className='nav-link' to={"/popular/:"+ data.id} href="#">
                                 <img src={"https://image.tmdb.org/t/p/w500/" + data.poster_path} alt="" />
                             </NavLink>  
                         </div>
@@ -41,7 +24,7 @@ class PopularMovies extends Component {
                                 <p><i className="fa fa-calendar"></i>{data.release_date}</p>
                             </div>
                             <div className="card-action">
-                                <NavLink className='nav-link' to={"/movie/:"+ data.id} href="#">
+                                <NavLink className='nav-link' to={"/popular/:"+ data.id} href="#">
                                     more details...
                                 </NavLink>
                             </div>
@@ -51,18 +34,7 @@ class PopularMovies extends Component {
                        
             )
         })
-        // <ul>
-        // {popularMovies.map((data,index) => {
-        //     return (
-        //         <div key={data.id} className=''>
-        //             <li className='' key={data.id}>{data.title}</li>
-        //             <img src={"https://image.tmdb.org/t/p/w500/" + data.poster_path} alt="aha" />
-        //         </div>
-                
-        //     )
-        // })}
-        // </ul>
-
+        
         return (
             <div className="container">
                 <div className='row center-align'>

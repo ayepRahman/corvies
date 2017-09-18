@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import users from "./usersReducer";
-import popularMovie from "./popularMovieReducer";
+import searchMovies from "./searchMovieReducer"
 
 const allReducers = combineReducers({
     users,
-    popularMovie
+    searchMovies
 });
 
 export default allReducers;
