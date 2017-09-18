@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from "firebase"
 import { firebaseApp } from "../../../../config/firbase-config";
 import { Link } from "react-router-dom"
 
@@ -36,9 +37,30 @@ class SignupForm extends Component {
             })
     }
 
+    authWithFacebook(facebookProvider) {
+        firebase.auth().signInWithPopup(facebookProvider).then((result) => {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            console.log(user, token);
+            // ...
+          }).catch(function(error) {
+            // Handle Errors here.
+            // var errorCode = error.code;
+            // var errorMessage = error.message;
+            // The email of the user's account used.
+            // var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            // var credential = error.credential;
+            // ...
+            throw(error)
+          })
+    }
+
 
     render() {
-        
+        let facebookProvider = new firebase.auth.FacebookAuthProvider();
 
         return (
             <div>
@@ -131,6 +153,22 @@ class SignupForm extends Component {
 
                     </form>
                     
+                </div>
+
+                <div className='row'>
+                    {/* facebook/github/google */}
+                    <div className='col s8 offset-s2 '>
+                        <p>Or choose the following sign up/login methods</p>
+                        {/* facebook */}
+                        <div className=''>
+                            <button 
+                                type='submit' 
+                                className='btn blue darken-4 waves-effect waves-light '
+                                onClick={this.authWithFacebook.bind(this, facebookProvider)} >
+                                <i className="fa fa-facebook-official"></i>facebook
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
