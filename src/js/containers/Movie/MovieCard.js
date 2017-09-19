@@ -6,6 +6,9 @@ class MovieCard extends Component {
 
     render() {
         let searchMovies = this.props.searchMovies
+        let genreMovies = this.props.genreMovies
+        console.log("genre:",genreMovies);
+
         if(!searchMovies) {
             return (
                 <div className='row'>
@@ -16,10 +19,9 @@ class MovieCard extends Component {
                     
                 </div>
             )
-        }
-        return (
-            <div>
-                <div className="row">
+        } else {
+            return (
+                <div className='row'>
                     {searchMovies.data.map((movie) => {
                         return(
                             <div key={movie.id} className="col s12 m12 l4">
@@ -44,7 +46,20 @@ class MovieCard extends Component {
                                 </div>
                             </div>
                         )
-                    })}  
+                    })}
+                </div>
+                
+            )
+        }
+
+        
+
+        return (
+            <div>
+                <div className="row">
+
+                    {searchMovies}
+                    
                 </div>
             </div>
         );
@@ -53,7 +68,8 @@ class MovieCard extends Component {
 
 function mapStateToProps(state) {
     return {
-        searchMovies: state.searchMovies
+        searchMovies: state.searchMovies,
+        genreMovies: state.genreMovies
     }
 }
 
