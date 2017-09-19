@@ -32,8 +32,9 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-                <div className="input-field col s8">
+                <div className="input-field col s7">
                     <form onSubmit={this.onSubmit}>
+                        <i className="fa fa-film prefix" ></i>
                         <input
                             value={this.state.searchQuery}
                             onChange={this.onChange} 
@@ -42,7 +43,7 @@ class SearchBar extends Component {
                             type="text" 
                             className="validate" 
                         />
-                        <label htmlFor="searchField">Search by Movies names</label>
+                        <label htmlFor="searchField">Search by Movies</label>
                     </form> 
                 </div>
             </div>
@@ -50,15 +51,9 @@ class SearchBar extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    // console.log("mapStateToProps:", state.searchMovie);
-    return {
-        movies: state
-    }
-}
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({searchQueryApi}, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(SearchBar);
+export default connect(null, matchDispatchToProps)(SearchBar);

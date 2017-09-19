@@ -5,7 +5,7 @@ class PopularMovies extends Component {
 
     render() {
         let popularMovie = this.props.popularMovies
-        console.log(popularMovie);
+        // console.log(popularMovie);
         let popularCard = popularMovie.map((data) => {
             return (
                 

@@ -7,7 +7,6 @@ class SignupForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
             email: '',
             password: '',
             error: {
@@ -67,28 +66,6 @@ class SignupForm extends Component {
                 <div className="row">
                     <form onSubmit={this.onSubmit} className="col offset-s2 s8">
                         <h4>Register</h4>
-
-                        {/* name */}
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <i className="fa fa-user-circle prefix"></i>
-                                <input
-                                    value={this.state.name}
-                                    onChange={this.onChange}
-                                    name="name" 
-                                    id="name" 
-                                    type="text" 
-                                    className="validate" 
-                                    maxLength="20"
-                                    required
-                                />
-                                <label 
-                                    htmlFor="name"
-                                    data-error="please type your username" 
-                                    data-success="success"
-                                >Name</label>
-                            </div>
-                        </div>
 
                         {/* email */}
                         <div className="row">

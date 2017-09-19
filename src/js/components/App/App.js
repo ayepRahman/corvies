@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from "redux-logger"
 import thunk from "redux-thunk"
-import allReducers from "../../reducers/indexReducer"
+import allReducers from "../../reducers/index-reducer"
 import { firebaseApp } from "../../../config/firbase-config"
 import { logUser } from "../../actions/index-action"
 import $ from 'jquery';
@@ -46,6 +46,8 @@ class App extends Component {
           }
 
           $('.parallax').parallax();
+
+          
       })
 
   }
@@ -57,8 +59,8 @@ class App extends Component {
       if (user) {
         console.log("User Sign In " + user );
         // keys/values from firebase
-        const { name, displayName , email  } = user
-        store.dispatch( logUser(name, displayName , email) )
+        const { displayName , email  } = user
+        store.dispatch( logUser(displayName , email) )
         history.push("/movie")
       } else {
         console.log("Signed Out");

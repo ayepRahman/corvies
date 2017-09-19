@@ -8,7 +8,13 @@ class MovieCard extends Component {
         let searchMovies = this.props.searchMovies
         if(!searchMovies) {
             return (
-                <div className=''>Are you searching yet?</div>
+                <div className='row'>
+                    <div className='col s12 center-align'>
+                        <i className="fa fa-search fa-5x"></i>
+                        <h5>not searching yet?</h5>
+                    </div>
+                    
+                </div>
             )
         }
         return (

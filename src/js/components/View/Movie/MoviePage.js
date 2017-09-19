@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserDetails from "../../../containers/User/UserDetails"
 import SearchBar from "../../../containers/SearchBar/SearchBar"
+import SelectBar from "../../../containers/SelectBar/SelectBar"
 import MovieCard from "../../../containers/Movie/MovieCard"
 
 class MovieListPage extends Component {
@@ -21,7 +22,7 @@ class MovieListPage extends Component {
                         <div className='col s12'>
                             <div className='row'>
                                 <SearchBar />
-                                <p>SelectCategory</p>
+                                <SelectBar />
                             </div>
                         </div>
                     </div>
