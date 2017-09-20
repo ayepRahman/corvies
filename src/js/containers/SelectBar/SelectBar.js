@@ -21,7 +21,7 @@ class SelectBar extends Component {
     }
 
     onChange(e) {
-        console.log("onchange:", e.target.value);
+        // console.log("onchange:", e.target.value);
         let selectId = e.target.value
         this.setState({
             value: e.target.value
@@ -30,8 +30,8 @@ class SelectBar extends Component {
     }
 
     onSubmit(e) {
-        let val = this.state.value
-        console.log("onSubmit",val);
+        // let val = this.state.value
+        // console.log("onSubmit",val);
         // this.props.searchQueryApi(query)
         e.preventDefault();
     }
@@ -46,7 +46,7 @@ class SelectBar extends Component {
                             className="browser-default"
                             value={this.state.selectVal}
                             onChange={this.onChange}>
-                            <option value="">Select Genre</option>
+                            <option value="" >Select</option>
                             <option value="28">Action</option>
                             <option value="12">Adventure</option>
                             <option value="16">Animation</option>

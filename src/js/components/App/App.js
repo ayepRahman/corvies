@@ -18,7 +18,7 @@ import Home from "../View/Home/Home"
 import SignupPage from "../View/Signup/SignupPage"
 import LoginPage from "../View/Login/LoginPage"
 import Movie from "../View/Movie/MoviePage"
-import PopularPage from "../View/Popular/PopularPage"
+import MovieArticlePage from "../View/Movie/MovieArticlePage"
 
 // const
 const history = createBrowserHistory()
@@ -81,7 +81,7 @@ class App extends Component {
             <Route path="/signup" component={SignupPage}/>
             <Route path="/login" component={LoginPage}/>
             <Route path="/movie" component={Movie}/>
-            <Route path="/popular" component={PopularPage}/>
+            <Route path="/article/:id" component={MovieArticlePage}/>
 
           </div>
         </Router>

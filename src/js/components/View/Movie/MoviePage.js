@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import UserDetails from "../../../containers/User/UserDetails"
 import SearchBar from "../../../containers/SearchBar/SearchBar"
 import SelectBar from "../../../containers/SelectBar/SelectBar"
-import MovieCard from "../../../containers/Movie/MovieCard"
+import MovieContainer from "../../../containers/Movie/MovieContainer"
+
 
 class MovieListPage extends Component {
     
@@ -18,20 +19,19 @@ class MovieListPage extends Component {
                 
 
                 <div className='container'>
+                    {/* filter components */}
                     <div className='row'>
                         <div className='col s12'>
-                            <div className='row'>
-                                <SearchBar />
-                                <SelectBar />
-                            </div>
+                            <SearchBar />
+                            <SelectBar />
                         </div>
+                    </div>
+                                {/* Smart Component*/}
+                    <div className='row'>
+                        <MovieContainer />
                     </div>
                 </div>
 
-                <div className='container'>
-                    <MovieCard />
-                </div>
-     
             </div>
         );
     }

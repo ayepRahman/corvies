@@ -32,7 +32,7 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-                <div className="input-field col s7">
+                <div className="input-rfield col s7">
                     <form onSubmit={this.onSubmit}>
                         <i className="fa fa-film prefix" ></i>
                         <input
@@ -42,8 +42,8 @@ class SearchBar extends Component {
                             id="searchField" 
                             type="text" 
                             className="validate" 
+                            placeholder="Search By Movies Title"
                         />
-                        <label htmlFor="searchField">Search by Movies</label>
                     </form> 
                 </div>
             </div>

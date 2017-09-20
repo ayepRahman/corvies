@@ -14,7 +14,7 @@ class Banner extends Component {
                         <br/>
                         <h1 className="header center teal-text text-lighten-2">Corvies</h1>
                         <div className="row center">
-                            <h5 className="header col s12 white-text light">The Core place to search for your favourite movies</h5>
+                            <h5 className="header col s12 teal-text light">The Core place to search for your favourite movies</h5>
                         </div>
 
                         <div className="row center">
