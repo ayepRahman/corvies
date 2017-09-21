@@ -79,9 +79,9 @@ class App extends Component {
           <div>
             <Navbar />
             <Route exact path="/" component={Home}/>
+            <Route path="/movie" component={Movie} />
             <Route path="/signup" component={SignupPage}/>
             <Route path="/login" component={LoginPage}/>
-            <Route path="/movie" component={Movie}/>
             <Route path="/article/:id" component={MovieArticlePage}/>
             <Footer />
           </div>

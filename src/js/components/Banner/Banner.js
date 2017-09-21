@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import bannerImg from "../../../img/movie-banner.jpg"
+// import bannerImg from "../../../img/movie-banner.jpg"
 import { NavLink } from "react-router-dom"
 
 
