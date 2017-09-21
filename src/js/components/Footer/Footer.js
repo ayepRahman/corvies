@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import brandLogo from '../../assets/images/brand-logo2.png'
+import { NavLink } from "react-router-dom"
+// import brandLogo from '../../assets/images/brand-logo2.png'
 
 class Footer extends Component {
     render() {
@@ -8,28 +9,28 @@ class Footer extends Component {
                 <footer className="footer-distributed">
 
                     <div className="footer-left">
-
-                        <h3><img src={ brandLogo } alt=""/></h3>
-
+                        <h3>Corvies</h3>
                         <p className="footer-links">
-                            <a href="#">Home</a>
+                            <NavLink className='nav-link' to="/" href="#">
+                                Home
+                            </NavLink>
                             ·
-                            <a href="#">Foodies</a>
+                            <NavLink className='nav-link' to="/signup" href="#">
+                                Register
+                            </NavLink>
                             ·
-                            <a href="#">Story</a>
-                            ·
-                            <a href="#">Social</a>
+                            <NavLink className='nav-link' to="/login" href="#">
+                                Login
+                            </NavLink>
+                           
                         </p>
-
                         <p className="footer-company-name">Company Name &copy; 2015</p>
 
                         <div className="footer-icons">
-
                             <a href="#"><i className="fa fa-facebook"></i></a>
                             <a href="#"><i className="fa fa-twitter"></i></a>
                             <a href="#"><i className="fa fa-linkedin"></i></a>
                             <a href="#"><i className="fa fa-github"></i></a>
-
                         </div>
 
                     </div>
@@ -48,8 +49,9 @@ class Footer extends Component {
 
                     </div>
 
-		</footer>
+		        </footer>
             </div>
+            
         );
     }
 }

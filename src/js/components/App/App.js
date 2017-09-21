@@ -19,6 +19,7 @@ import SignupPage from "../View/Signup/SignupPage"
 import LoginPage from "../View/Login/LoginPage"
 import Movie from "../View/Movie/MoviePage"
 import MovieArticlePage from "../View/Movie/MovieArticlePage"
+import Footer from "../Footer/Footer"
 
 // const
 const history = createBrowserHistory()
@@ -82,7 +83,7 @@ class App extends Component {
             <Route path="/login" component={LoginPage}/>
             <Route path="/movie" component={Movie}/>
             <Route path="/article/:id" component={MovieArticlePage}/>
-
+            <Footer />
           </div>
         </Router>
       </Provider>  

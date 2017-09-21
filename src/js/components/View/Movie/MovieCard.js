@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from "react-router-dom"
+import noImage from "../../../../img/no-image.png"
 
 class MovieCard extends Component {
     render() {
@@ -15,7 +16,7 @@ class MovieCard extends Component {
                                 <div className="card horizontal z-depth-4">
                                     <div className="card-image">
                                         <NavLink className='nav-link' to={"/article/"+ movie.id} href="#">
-                                            <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" />
+                                            <img src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt={noImage} />
                                         </NavLink>  
                                     </div>
                                     <div className="card-stacked">

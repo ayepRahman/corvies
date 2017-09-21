@@ -50,6 +50,13 @@ class SelectBar extends Component {
                             <option value="28">Action</option>
                             <option value="12">Adventure</option>
                             <option value="16">Animation</option>
+                            <option value="35">Comedy</option>
+                            <option value="80">Crime</option>
+                            <option value="10751">Family</option>
+                            <option value="27">Horror</option>
+                            <option value="10749">Romance</option>
+                            <option value="53">Thriller</option>
+                            <option value="10752">War</option>
                         </select>
                         
                     </form>   

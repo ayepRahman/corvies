@@ -12,7 +12,7 @@ class MovieContainer extends Component {
 
         if(!searchMovies && !genreMovies) {
             return (
-                <div className='center-align'>
+                <div className='center-align custom-container'>
                     <i className="fa fa-search fa-4x"></i>
                     <p>Please search a movie</p>
                 </div>
