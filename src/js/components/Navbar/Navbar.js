@@ -15,9 +15,9 @@ class Navbar extends Component {
     
     componentDidMount() {
         firebaseApp.auth().onAuthStateChanged( (user) => {
-            console.log(user);
+            // console.log(user);
             if (user) {
-                console.log("User Status: ", user.Lc);
+                // console.log("User Status: ", user.Lc);
               this.setState({
                 user
               })

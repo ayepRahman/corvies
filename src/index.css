@@ -21,6 +21,9 @@ nav .brand-logo {
 .custom-container {
   margin: 200px 0px; }
 
+.custom-gradient {
+  background: linear-gradient(rgba(20, 20, 20, 0.948), rgba(20, 20, 20, 0.5)); }
+
 nav {
   background-color: #37474f !important; }
 
@@ -182,3 +185,12 @@ nav {
     display: block; }
   .footer-distributed form button {
     float: none; } }
+
+.article-bd-img {
+  position: relative;
+  z-index: -1;
+  height: 50%;
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
