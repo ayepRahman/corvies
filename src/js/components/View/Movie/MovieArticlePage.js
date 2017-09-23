@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import noImage from "../../../../img/no-image.png"
+import CircleLoading from "../../ProgressBar/CircleLoading"
+import LineLoading from "../../ProgressBar/LineLoading"
 
 
 class MovieArticle extends Component {
@@ -8,11 +10,11 @@ class MovieArticle extends Component {
         super(props)
 
         this.state = {
-            movieData: ""
+            movieData: "",
         }
     }
     
-    componentDidMount() {
+    componentWillMount() {
         const { id } = this.props.match.params
         const url = "https://api.themoviedb.org/3/movie/"+ id +"?api_key=" + process.env.REACT_APP_IMDB_KEY
         // console.log("In CDM", id);
@@ -21,7 +23,7 @@ class MovieArticle extends Component {
         .then((response) => {
             console.log(response);
             this.setState ({
-                movieData: response.data
+                movieData: response.data,
             })
         })
         .catch((err) => {
@@ -29,28 +31,51 @@ class MovieArticle extends Component {
         })
     }
     
-
     render() {
         let movie = this.state.movieData
-        // let genres = movie.genres
-        // let backdrop = movie.backdrop_path
         const { title, release_date, overview, genres, backdrop_path } = movie
-        console.log(genres);
-    
+
+        console.log(genres)
         console.log("MOVIEDATA", movie)
 
-        
-        return (
-            <div>
-                <div className='custom-gradient'>
-                    <img 
-                        className="article-bd-img"
-                        src={"https://image.tmdb.org/t/p/original/" + backdrop_path } 
-                        alt={noImage} 
-                    />
+        if (movie) {
+            return (
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col s12'>
+                            <LineLoading />
+                        </div>
+                        
+                    </div>
                 </div>
-            </div>
-        );
+            )
+        } else {
+            return (
+                <div>
+                    
+                    <div className='custom-gradient col s12'>
+                        <img 
+                            className="article-bd-img"
+                            src={"https://image.tmdb.org/t/p/original/" + backdrop_path } 
+                            alt={noImage} 
+                        />
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col s12 m12 l4'>
+    
+                                </div>
+                                <div className='col s12 m12 l4'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                       
+                </div>
+            );
+        }
+
+        
+       
     }
 }
 
