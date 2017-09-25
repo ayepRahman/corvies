@@ -38,11 +38,11 @@ class MovieArticle extends Component {
         console.log(genres)
         console.log("MOVIEDATA", movie)
 
-        if (movie) {
+        if (!movie) {
             return (
                 <div className='container'>
                     <div className='row'>
-                        <div className='col s12'>
+                        <div className='col s12 custom-container center-align'>
                             <LineLoading />
                         </div>
                         
@@ -57,7 +57,7 @@ class MovieArticle extends Component {
                         <img 
                             className="article-bd-img"
                             src={"https://image.tmdb.org/t/p/original/" + backdrop_path } 
-                            alt={noImage} 
+                            alt={"noImage"} 
                         />
                         <div className='container'>
                             <div className='row'>

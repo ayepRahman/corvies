@@ -10,9 +10,17 @@ class LineLoading extends Component {
             duration: 500,
             color: "#08453c",
             trailColor: "#eee",
-            from: {color: "#e91e63"},
-            to: {color: "#26a69a"},
-            svgStyle: {width: '100%', height: '100%', margin: "20px"},
+            from: {
+                color: "#e91e63"
+            },
+            to: {
+                color: "#26a69a"
+            },
+            svgStyle: {
+                width: '100%', 
+                height: '100%', 
+                margin: "20px"
+            },
             trailWidth: 1,
             step: (state, bar) => {
                 bar.path.setAttribute('stroke', state.color);
@@ -24,14 +32,14 @@ class LineLoading extends Component {
 
         let containerStyle = {
             margin: "20px",
-            width: "400px",
+            width: "100%",
             height: "8"
         };
 
         return (
             <Line
                 progress={true}
-                text={'test'}
+                text={'Loading'}
                 options={options}
                 initialAnimate={true}
                 containerStyle={containerStyle}
