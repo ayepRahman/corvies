@@ -21,6 +21,9 @@ nav .brand-logo {
 .custom-container {
   margin: 200px 0px; }
 
+.custom-abs {
+  position: absolute; }
+
 .custom-gradient {
   background: linear-gradient(#141414, rgba(20, 20, 20, 0.5));
   z-index: -1; }
@@ -51,7 +54,6 @@ nav {
   font: bold 16px sans-serif;
   text-align: left;
   padding: 50px 60px 40px;
-  margin-top: 200px;
   overflow: hidden; }
 
 /* Footer left */
@@ -188,7 +190,7 @@ nav {
     float: none; } }
 
 .article-bd-img {
-  position: relative;
+  position: absolute;
   z-index: -2;
   max-width: 100%;
   background-repeat: no-repeat;

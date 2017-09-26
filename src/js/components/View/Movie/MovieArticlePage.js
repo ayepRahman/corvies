@@ -44,6 +44,16 @@ class MovieArticle extends Component {
             poster_path 
         } = movie
 
+        let bdImage = {
+            position: "relative",
+            backgroundImage: 'linear-gradient(rgba(20,20,20, .5),rgba(20,20,20, .5)),url(https://image.tmdb.org/t/p/original' + backdrop_path + ')',
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+        }
+
+        console.log(bdImage);
+
         console.log(genres)
         console.log("MOVIEDATA", movie)
 
@@ -62,17 +72,12 @@ class MovieArticle extends Component {
             return (
                 <div>
                     
-                    <div className='col s12'>
-                        <div className='custom-gradient'>
-                            <img 
-                                className="article-bd-img"
-                                src={"https://image.tmdb.org/t/p/original/" + backdrop_path } 
-                                alt={noImage} 
-                            />
+                    
+                        <div className='col s12' style={bdImage}>
                             <div className='container'>
                                 <div className='row'>
                                     <div className='col s12 m4 l4 '>
-                                        <div className="card  z-depth-4">
+                                        <div className="card z-depth-4">
                                             <div className="card-image">
                                                 <img src={"https://image.tmdb.org/t/p/w500/" + poster_path } alt={noImage} />
                                             </div>  
@@ -85,6 +90,17 @@ class MovieArticle extends Component {
                                             <li className=''>{release_date}</li>
                                             <li className=''>{vote_average}</li>
                                             <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            <li className=''>{overview}</li>
+                                            
                                         </ul>
                                     </div>
                         
@@ -92,7 +108,7 @@ class MovieArticle extends Component {
                             </div>
                         </div>
                     
-                    </div>   
+                      
                 </div>
             );
         }
