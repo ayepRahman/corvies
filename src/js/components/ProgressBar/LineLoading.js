@@ -33,7 +33,7 @@ class LineLoading extends Component {
         let containerStyle = {
             margin: "20px",
             width: "100%",
-            height: "8"
+            height: "8px"
         };
 
         return (

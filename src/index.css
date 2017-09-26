@@ -22,7 +22,8 @@ nav .brand-logo {
   margin: 200px 0px; }
 
 .custom-gradient {
-  background: linear-gradient(#141414, rgba(20, 20, 20, 0.5)); }
+  background: linear-gradient(#141414, rgba(20, 20, 20, 0.5));
+  z-index: -1; }
 
 nav {
   background-color: #37474f !important; }
@@ -188,7 +189,7 @@ nav {
 
 .article-bd-img {
   position: relative;
-  z-index: -1;
+  z-index: -2;
   max-width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
