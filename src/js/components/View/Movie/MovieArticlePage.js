@@ -71,44 +71,40 @@ class MovieArticle extends Component {
         } else {
             return (
                 <div>
-                    
-                    
-                        <div className='col s12' style={bdImage}>
-                            <div className='container'>
-                                <div className='row'>
-                                    <div className='col s12 m4 l4 '>
-                                        <div className="card z-depth-4">
-                                            <div className="card-image">
-                                                <img src={"https://image.tmdb.org/t/p/w500/" + poster_path } alt={noImage} />
-                                            </div>  
-                                        </div>
+                    <div className='col s12' style={bdImage}>
+                        <div className='container'>
+                            <div className='row'>
+                                <div className='col s12 m4 l4 '>
+                                    <div className="card z-depth-4">
+                                        <div className="card-image">
+                                            <img src={"https://image.tmdb.org/t/p/w500/" + poster_path } alt={noImage} />
+                                        </div>  
                                     </div>
-
-                                    <div className='col s12 m8 l8'>
-                                        <h4>{title}</h4>
-                                        <ul>
-                                            <li className=''>{release_date}</li>
-                                            <li className=''>{vote_average}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            <li className=''>{overview}</li>
-                                            
-                                        </ul>
-                                    </div>
-                        
                                 </div>
+
+                                <div className='col s12 m8 l8'>
+                                    <h4>{title}</h4>
+                                    <ul>
+                                        <li className=''>{release_date}</li>
+                                        <li className=''>{vote_average}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        <li className=''>{overview}</li>
+                                        
+                                    </ul>
+                                </div>
+                    
                             </div>
                         </div>
-                    
-                      
+                    </div>  
                 </div>
             );
         }
