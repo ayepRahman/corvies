@@ -18,8 +18,18 @@ nav .brand-logo {
 .custom-margin, .flash-msg {
   margin: 20px 0px; }
 
+@media only screen and (min-width: 993px) {
+  .custom-container {
+    width: 70%; } }
+
+@media only screen and (min-width: 601px) {
+  .custom-container {
+    width: 85%; } }
+
 .custom-container {
-  margin: 200px 0px; }
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 100px 0; }
 
 .custom-abs {
   position: absolute; }
@@ -189,10 +199,5 @@ nav {
   .footer-distributed form button {
     float: none; } }
 
-.article-bd-img {
-  position: absolute;
-  z-index: -2;
-  max-width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; }
+.card-articles h4 {
+  color: #26a69a; }

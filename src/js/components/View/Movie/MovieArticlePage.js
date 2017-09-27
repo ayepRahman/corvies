@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import noImage from "../../../../img/no-image.png"
-import CircleLoading from "../../ProgressBar/CircleLoading"
 import LineLoading from "../../ProgressBar/LineLoading"
 
 
@@ -34,7 +33,6 @@ class MovieArticle extends Component {
     render() {
         let movie = this.state.movieData
         const { 
-            id,
             title, 
             release_date, 
             overview, 
@@ -52,14 +50,12 @@ class MovieArticle extends Component {
             backgroundPosition: "center"
         }
 
-        console.log(bdImage);
-
         console.log(genres)
         console.log("MOVIEDATA", movie)
 
         if (!movie) {
             return (
-                <div className='container'>
+                <div className='custom-container'>
                     <div className='row'>
                         <div className='col s12 custom-container center-align'>
                             <LineLoading />
@@ -72,33 +68,22 @@ class MovieArticle extends Component {
             return (
                 <div>
                     <div className='col s12' style={bdImage}>
-                        <div className='container'>
+                        <div className='custom-container'>
                             <div className='row'>
                                 <div className='col s12 m4 l4 '>
-                                    <div className="card z-depth-4">
+                                    <div className="card z-depth-5">
                                         <div className="card-image">
                                             <img src={"https://image.tmdb.org/t/p/w500/" + poster_path } alt={noImage} />
                                         </div>  
                                     </div>
                                 </div>
 
-                                <div className='col s12 m8 l8'>
+                                <div className='col s12 m8 l8 card-articles'>
                                     <h4>{title}</h4>
                                     <ul>
-                                        <li className=''>{release_date}</li>
-                                        <li className=''>{vote_average}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        <li className=''>{overview}</li>
-                                        
+                                        <li>{release_date}</li>
+                                        <li>{vote_average}</li>
+                                        <li>{overview}</li>
                                     </ul>
                                 </div>
                     
