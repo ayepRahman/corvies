@@ -11,7 +11,7 @@ class LoginForm extends Component {
             email: '',
             password: '',
             error: {
-                message: ''
+                message: null
             }       
         }
 
@@ -33,7 +33,9 @@ class LoginForm extends Component {
 
         firebaseApp.auth().signInWithEmailAndPassword( email, password )
             .catch( error => {
-                this.setState({error})
+                this.setState({
+                    error
+                })
             })
     }
 
@@ -46,6 +48,9 @@ class LoginForm extends Component {
             console.log(user, token);
             // ...
           }).catch(function(error) {
+              this.setState({
+                  error: error.message
+                })
             // Handle Errors here.
             // var errorCode = error.code;
             // var errorMessage = error.message;
@@ -61,7 +66,7 @@ class LoginForm extends Component {
 
     render() {
         let facebookProvider = new firebase.auth.FacebookAuthProvider();
-
+        let errMsg = this.state.error.message
 
         return (
             <div>
@@ -117,9 +122,16 @@ class LoginForm extends Component {
                         </div>
 
                         {/* flash message */}
-                        <div className="container flash-msg">
-                            <h5>{this.state.error.message}</h5> 
-                        </div>
+                        { !errMsg ? (
+                                <div className=''></div>
+                            ) : (
+                                <div className="card-panel red darken-2">
+                                    <span className="white-text">
+                                        {errMsg}
+                                    </span>
+                                </div>
+                            )
+                        }
 
                         {/* Link */}
                         <div className='custom-margin'>

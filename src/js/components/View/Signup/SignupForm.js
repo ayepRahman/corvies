@@ -11,12 +11,25 @@ class SignupForm extends Component {
             password: '',
             error: {
                 message: ''
-            }       
+            },
+            success: ''       
         }
 
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
+
+    
+    componentWillMount() {
+        firebaseApp.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    success: "Successfully Register User!"
+                })
+            }
+        })
+    }
+    
 
     onChange(e) {
 
@@ -60,6 +73,8 @@ class SignupForm extends Component {
 
     render() {
         let facebookProvider = new firebase.auth.FacebookAuthProvider();
+        let errMsg = this.state.error.message
+        let successMsg = this.state.success
 
         return (
             <div>
@@ -112,9 +127,27 @@ class SignupForm extends Component {
                         </div>
 
                         {/* flash message */}
-                        <div className="flash-msg">
-                            <h5>{this.state.error.message}</h5> 
-                        </div>
+                        { !successMsg ? (
+                                <div className=''></div>
+                            ) : (
+                                <div className="card-panel green accent-3">
+                                    <span className="white-text">
+                                        {successMsg}
+                                    </span>
+                                </div>
+                            )
+                        }
+
+                        { !errMsg ? (
+                                <div className=''></div>
+                            ) : (
+                                <div className="card-panel red darken-2">
+                                    <span className="white-text">
+                                        {errMsg}
+                                    </span>
+                                </div>
+                            )
+                        }
 
                         {/* Link */}
                         <div className='custom-margin'>
