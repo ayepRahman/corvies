@@ -7,7 +7,6 @@ class UserDetails extends Component {
     constructor(props) {
         super(props);
 
-
         $(document).ready(() => {
             
             $('.chips').material_chip();
@@ -19,8 +18,8 @@ class UserDetails extends Component {
 
     render() {
         const { email, displayName } = this.props.users
-
         let userChip = null
+        
         if(!displayName) {
             userChip = (
                 <div className='chip'>Hi, { email }</div>

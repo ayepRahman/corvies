@@ -7,7 +7,7 @@ class LineLoading extends Component {
         let options = {
             strokeWidth: 4,
             easing: "easeInOut",
-            duration: 500,
+            duration: 1000,
             color: "#08453c",
             trailColor: "#eee",
             from: {

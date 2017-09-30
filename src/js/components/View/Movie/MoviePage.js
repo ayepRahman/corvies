@@ -18,7 +18,7 @@ class MovieListPage extends Component {
                 </div>    
                 
 
-                <div className='container'>
+                <div className='custom-container_marginBottom'>
                     {/* filter components */}
                     <div className='row'>
                         <div className='col s12'>
@@ -26,7 +26,7 @@ class MovieListPage extends Component {
                             <SelectBar />
                         </div>
                     </div>
-                                {/* Smart Component*/}
+                    {/* Smart Component*/}
                     <div className='row'>
                         <MovieContainer />
                     </div>

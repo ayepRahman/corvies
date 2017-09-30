@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from "axios"
-import noImage from "../../../../img/no-image.png"
 import LineLoading from "../../ProgressBar/LineLoading"
+import MovieArticleBanner from "./MovieArticleBanner"
+import AddReview from "../../Reviews/AddReview"
 
 
 class MovieArticle extends Component {
@@ -10,52 +10,26 @@ class MovieArticle extends Component {
 
         this.state = {
             movieData: {},
+            loading: true
         }
     }
     
-    componentWillMount() {
-        const { id } = this.props.match.params
-        const url = "https://api.themoviedb.org/3/movie/"+ id +"?api_key=" + process.env.REACT_APP_IMDB_KEY
-        // console.log("In CDM", id);
-        // console.log(url);
-        axios.get(url)
-        .then((response) => {
-            console.log(response);
-            this.setState ({
-                movieData: response.data,
-            })
-        })
-        .catch((err) => {
-            throw(err)
-        })
+    componentDidMount() {
+        setTimeout(() => this.setState({
+            loading: false
+        }), 1000)
     }
+    
     
     render() {
-        let movie = this.state.movieData
-        const { 
-            title, 
-            release_date, 
-            overview, 
-            genres,
-            vote_average ,
-            backdrop_path, 
-            poster_path 
-        } = movie
+        // console.log("MOVIE ID:",this.props.match.params);
+        const { id } = this.props.match.params
+        let { loading } = this.state
 
-        let bdImage = {
-            position: "relative",
-            backgroundImage: 'linear-gradient(rgba(20,20,20, .5),rgba(20,20,20, .5)),url(https://image.tmdb.org/t/p/original' + backdrop_path + ')',
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-        }
-
-        console.log(genres)
-        console.log("MOVIEDATA", movie)
-
-        if (!movie) {
+        // display loading and rerender adter setinterval change to false
+        if (loading) {
             return (
-                <div className='custom-container'>
+                <div className='custom-container_marginBottom'>
                     <div className='row'>
                         <div className='col s12 custom-container center-align'>
                             <LineLoading />
@@ -65,34 +39,20 @@ class MovieArticle extends Component {
                 </div>
             )
         } else {
-            return (
+            return(
                 <div>
-                    <div className='col s12' style={bdImage}>
-                        <div className='custom-container'>
-                            <div className='row'>
-                                <div className='col s12 m4 l4 '>
-                                    <div className="card z-depth-5">
-                                        <div className="card-image">
-                                            <img src={"https://image.tmdb.org/t/p/w500/" + poster_path } alt={noImage} />
-                                        </div>  
-                                    </div>
-                                </div>
-
-                                <div className='col s12 m8 l8 card-articles'>
-                                    <h4>{title}</h4>
-                                    <ul>
-                                        <li>{release_date}</li>
-                                        <li>{vote_average}</li>
-                                        <li>{overview}</li>
-                                    </ul>
-                                </div>
-                    
-                            </div>
-                        </div>
-                    </div>  
+                    <MovieArticleBanner 
+                        loading={this.state.loading}
+                        movieData={this.state.movieData}
+                        id={id}
+                    />
+                    <AddReview
+                        movieId={ id }
+                    />
                 </div>
-            );
+            )
         }
+        
 
         
        

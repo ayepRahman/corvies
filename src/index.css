@@ -26,13 +26,18 @@ nav .brand-logo {
   .custom-container {
     width: 85%; } }
 
+@media only screen and (min-width: 320px) {
+  .custom-container {
+    padding: 10px 0 !important; } }
+
 .custom-container {
   margin: 0 auto;
   max-width: 1280px;
-  padding: 100px 0; }
+  padding: 50px 0; }
 
-.custom-abs {
-  position: absolute; }
+.custom-container_marginBottom {
+  margin: 0 auto 200px auto;
+  max-width: 1280px; }
 
 .custom-gradient {
   background: linear-gradient(#141414, rgba(20, 20, 20, 0.5));
@@ -199,5 +204,23 @@ nav {
   .footer-distributed form button {
     float: none; } }
 
+.card-articles h1 {
+  color: #26a69a; }
+
+.card-articles h2 {
+  color: #26a69a; }
+
+.card-articles h3 {
+  color: #26a69a; }
+
 .card-articles h4 {
   color: #26a69a; }
+
+.card-articles h5 {
+  color: #26a69a; }
+
+.card-articles ul li {
+  color: #e1e1e1; }
+
+.card-articles p {
+  color: #e1e1e1; }
