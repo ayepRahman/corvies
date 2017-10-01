@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import LineLoading from "../../ProgressBar/LineLoading"
 import MovieArticleBanner from "./MovieArticleBanner"
-import AddReview from "../../Reviews/AddReview"
+import AddReview from "../../../containers/Reviews/AddReview"
+import Reviews from "../../../containers/Reviews/Reviews"
+import { firebaseApp } from "../../../../config/firbase-config"
 
 
 class MovieArticle extends Component {
@@ -10,11 +12,25 @@ class MovieArticle extends Component {
 
         this.state = {
             movieData: {},
-            loading: true
+            loading: true,
+            users: null
         }
     }
+
+    
+    componentWillMount() {
+        firebaseApp.auth().onAuthStateChanged((user) => {
+            if(user) {
+                this.setState({
+                    users: user
+                })
+            }
+        })
+    }
+    
     
     componentDidMount() {
+
         setTimeout(() => this.setState({
             loading: false
         }), 1000)
@@ -24,7 +40,8 @@ class MovieArticle extends Component {
     render() {
         // console.log("MOVIE ID:",this.props.match.params);
         const { id } = this.props.match.params
-        let { loading } = this.state
+        const { loading } = this.state
+        const isUser = this.state.users
 
         // display loading and rerender adter setinterval change to false
         if (loading) {
@@ -46,9 +63,16 @@ class MovieArticle extends Component {
                         movieData={this.state.movieData}
                         id={id}
                     />
-                    <AddReview
-                        movieId={ id }
-                    />
+
+                    <Reviews />
+                    {!isUser ? (
+                            <div className=''></div>
+                        ) : (
+                            <AddReview movieId={ id } />
+                        )
+                    }
+                   
+
                 </div>
             )
         }

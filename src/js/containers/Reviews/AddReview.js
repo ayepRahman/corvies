@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux"
 import { reviewRef } from "../../../config/firbase-config"
 
 class AddReview extends Component {
@@ -18,7 +19,7 @@ class AddReview extends Component {
     }
 
     onChange(e) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -28,16 +29,20 @@ class AddReview extends Component {
     onSubmit(e) {
         e.preventDefault()
         console.log("onSubmit:",this.state);
+        const { email } = this.props
 
         reviewRef.push({
             movie_id: this.props.movieId,
-            email: "new@test.com",
+            email,
             reviews: this.state.reviews
         })
         
     }
 
     render() {
+
+        // console.log("Mstp: ", this.props.email);
+
         return (
             <div className="container">
                 <div className='row'>
@@ -63,4 +68,10 @@ class AddReview extends Component {
     }
 }
 
-export default AddReview;
+function mapStateToProps(state) {
+    return {
+        email: state.users.email
+    }
+}
+
+export default connect(mapStateToProps, null)(AddReview)

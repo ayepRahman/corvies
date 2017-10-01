@@ -19,7 +19,7 @@ class MovieArticleBanner extends Component {
         // console.log(url);
         axios.get(url)
         .then((response) => {
-            console.log("reponse: ", response);
+            // console.log("reponse: ", response);
             this.setState ({
                 movieData: response.data,
             })
