@@ -3,14 +3,11 @@ import { connect } from "react-redux"
 import $ from "jquery"
 import { db } from "../../../config/firbase-config"
 import noImage from "../../../img/movie-banner.jpg"
+import { setReviews } from "../../actions/index-action"
 
 class Reviews extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            reviews: null
-        }
 
         $(document).ready(function(){
             $('.collapsible').collapsible();
@@ -18,19 +15,15 @@ class Reviews extends Component {
 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         // querying db equal to movei_id
         let reviewsRef = db.ref().child("reviews")
         let query = reviewsRef
                         .orderByChild("movie_id")
                         .equalTo(this.props.movieId)
-         
-        let filteredRev = []  
         
         query.on("value", (snap) => {
-            this.setState({
-                reviews: snap.val()
-            })
+            this.props.setReviews(snap.val())
         })
 
         // query.on("value", (snap) => {
@@ -49,14 +42,8 @@ class Reviews extends Component {
     
 
     render() {
-        let latestReviews = this.state.reviews
-        console.log("Latest Reviews: ", latestReviews );
-        
-        // let filteredReviews = latestReviews.filter((review) => {
-        //     return review.movie_id.indexOf(
-        //         this.props.movieId
-        //     )
-        // })
+        console.log(this.props.reviews);
+        let latestReviews = this.props.reviews
         // console.log(JSON.stringify(Object.keys(latestReviews), null, 3));
         // console.log("Filtered Reviews: ", filteredReviews);
         
@@ -70,10 +57,10 @@ class Reviews extends Component {
                                 <div className=''></div>
                             ) : (
                                 Object.keys(latestReviews).map((key, index) => {
-                                    console.log(latestReviews[key].email);
+                                    // console.log(key);
                                     const { email, review } = latestReviews[key]
                                     return(
-                                        <li className="collection-item avatar">
+                                        <li key={key} className="collection-item avatar">
                                             <img src={ noImage } alt="" className="circle" />
                                             <span className="title"><b>{email}</b></span>
                                             <p>{review}</p>
@@ -92,4 +79,10 @@ class Reviews extends Component {
     }
 }
 
-export default Reviews;
+function mapStateToProps(state) {
+    return {
+        reviews: state.reviews
+    }
+}
+
+export default connect(mapStateToProps , { setReviews })(Reviews);

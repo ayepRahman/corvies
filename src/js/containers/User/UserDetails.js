@@ -20,7 +20,7 @@ class UserDetails extends Component {
         const { email, displayName } = this.props.users
         let userChip = null
         
-        if(!displayName) {
+        if(!displayName && !email) {
             userChip = (
                 <div className='chip'>Hi, { email }</div>
             )

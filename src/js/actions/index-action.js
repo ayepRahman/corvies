@@ -42,6 +42,7 @@ export function selectQueryApi(genre_id) {
 }
 
 export function setReviews(reviews) {
+    // console.log("FROM REVIEWS", reviews);
     const action = {
         type: SET_REVIEWS,
         reviews
