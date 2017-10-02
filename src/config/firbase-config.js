@@ -10,4 +10,5 @@ const config = {
 };
 
 export const firebaseApp = firebase.initializeApp(config)
-export const reviewRef = firebase.database().ref("reviews")
+export const db = firebase.database()
+export const reviewRef = db.ref("reviews")

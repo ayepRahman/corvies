@@ -1,4 +1,4 @@
-import { SIGNED_IN, FETCH_SEARCH, FETCH_GENRE } from "../constants"
+import { SIGNED_IN, FETCH_SEARCH, FETCH_GENRE, SET_REVIEWS} from "../constants"
 import axios from "axios"
 
 
@@ -39,5 +39,13 @@ export function selectQueryApi(genre_id) {
                 })
             })
     }
+}
+
+export function setReviews(reviews) {
+    const action = {
+        type: SET_REVIEWS,
+        reviews
+    }
+    return action
 }
 

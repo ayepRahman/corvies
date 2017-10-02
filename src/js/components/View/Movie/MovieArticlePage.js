@@ -3,7 +3,7 @@ import LineLoading from "../../ProgressBar/LineLoading"
 import MovieArticleBanner from "./MovieArticleBanner"
 import AddReview from "../../../containers/Reviews/AddReview"
 import Reviews from "../../../containers/Reviews/Reviews"
-import { firebaseApp } from "../../../../config/firbase-config"
+import { connect } from "react-redux"
 
 
 class MovieArticle extends Component {
@@ -13,21 +13,9 @@ class MovieArticle extends Component {
         this.state = {
             movieData: {},
             loading: true,
-            users: null
+            // users: null
         }
     }
-
-    
-    componentWillMount() {
-        firebaseApp.auth().onAuthStateChanged((user) => {
-            if(user) {
-                this.setState({
-                    users: user
-                })
-            }
-        })
-    }
-    
     
     componentDidMount() {
 
@@ -35,13 +23,13 @@ class MovieArticle extends Component {
             loading: false
         }), 1000)
     }
-    
-    
+     
     render() {
         // console.log("MOVIE ID:",this.props.match.params);
         const { id } = this.props.match.params
         const { loading } = this.state
-        const isUser = this.state.users
+        const { isLogin } = this.props
+        // const isUser = this.state.users
 
         // display loading and rerender adter setinterval change to false
         if (loading) {
@@ -64,8 +52,9 @@ class MovieArticle extends Component {
                         id={id}
                     />
 
-                    <Reviews />
-                    {!isUser ? (
+                    <Reviews movieId={ id }/>
+
+                    {!isLogin ? (
                             <div className=''></div>
                         ) : (
                             <AddReview movieId={ id } />
@@ -83,4 +72,10 @@ class MovieArticle extends Component {
     }
 }
 
-export default MovieArticle;
+function mapStateToProps(state) {
+    return {
+        isLogin: state.users
+    }
+}
+
+export default connect(mapStateToProps, null)(MovieArticle)

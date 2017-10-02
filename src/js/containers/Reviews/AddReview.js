@@ -34,7 +34,7 @@ class AddReview extends Component {
         reviewRef.push({
             movie_id: this.props.movieId,
             email,
-            reviews: this.state.reviews
+            review: this.state.reviews
         })
         
     }
@@ -70,7 +70,8 @@ class AddReview extends Component {
 
 function mapStateToProps(state) {
     return {
-        email: state.users.email
+        email: state.users.email,
+        login: state.users
     }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux"
 import $ from "jquery"
-import { reviewRef } from "../../../config/firbase-config"
+import { db } from "../../../config/firbase-config"
 import noImage from "../../../img/movie-banner.jpg"
 
 class Reviews extends Component {
@@ -8,7 +9,7 @@ class Reviews extends Component {
         super(props)
 
         this.state = {
-            reviews: []
+            reviews: null
         }
 
         $(document).ready(function(){
@@ -17,31 +18,47 @@ class Reviews extends Component {
 
     }
 
-    componentDidMount() {
-
-        let newReviews = []
-
-        reviewRef.on("value", snap => {
-            snap.forEach((childSnap) => {
-                console.log("reviews Snap: ",childSnap.val());
-                newReviews.push(childSnap.val())
+    componentWillMount() {
+        // querying db equal to movei_id
+        let reviewsRef = db.ref().child("reviews")
+        let query = reviewsRef
+                        .orderByChild("movie_id")
+                        .equalTo(this.props.movieId)
+         
+        let filteredRev = []  
+        
+        query.on("value", (snap) => {
+            this.setState({
+                reviews: snap.val()
             })
         })
 
-        this.setState({
-            reviews: newReviews
-        })
+        // query.on("value", (snap) => {
+        //     snap.forEach((childSnap) => {
+        //         // console.log("ChidlSnap: ", childSnap.val());
+        //         filteredRev.push(childSnap.val())
+        //     })
+        // })
+
+        // this.setState({
+        //     reviews: filteredRev
+        // })
+        
 
     }
     
 
     render() {
-        console.log("Reviews",this.state.reviews);
-        let reviews = this.state.reviews
-
-        let filteredReviews = reviews.filter((review) => {
-            console.log("filter review",review.email);
-        })
+        let latestReviews = this.state.reviews
+        console.log("Latest Reviews: ", latestReviews );
+        
+        // let filteredReviews = latestReviews.filter((review) => {
+        //     return review.movie_id.indexOf(
+        //         this.props.movieId
+        //     )
+        // })
+        // console.log(JSON.stringify(Object.keys(latestReviews), null, 3));
+        // console.log("Filtered Reviews: ", filteredReviews);
         
         return (
             <div className="container">
@@ -49,17 +66,23 @@ class Reviews extends Component {
                     <div className='col s12'>
                         <ul className="collection with-header">
                             <li className="collection-header"><h4>Reviews</h4></li>
-
-                            <li className="collection-item avatar">
-                                <img src={ noImage } alt="" className="circle" />
-                                <span className="title"><b>Email</b></span>
-                                <div className='divider'></div>
-                                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam. </p>
-
-                                <a href="#!" className="secondary-content"><i className="fa fa-trash-o"></i></a>
-                            </li>
+                            { !latestReviews ? (
+                                <div className=''></div>
+                            ) : (
+                                Object.keys(latestReviews).map((key, index) => {
+                                    console.log(latestReviews[key].email);
+                                    const { email, review } = latestReviews[key]
+                                    return(
+                                        <li className="collection-item avatar">
+                                            <img src={ noImage } alt="" className="circle" />
+                                            <span className="title"><b>{email}</b></span>
+                                            <p>{review}</p>
+                                            <a href="#!" className="secondary-content"><i className="fa fa-trash-o"></i></a>
+                                        </li>
+                                    )
+                                })
+                            ) }
+                            
 
                         </ul>
                     </div>
