@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { reviewRef } from "../../../config/firbase-config"
+import Materialize from "materialize-css"
 
 class AddReview extends Component {
     constructor(props) {
@@ -36,6 +37,10 @@ class AddReview extends Component {
             email,
             review: this.state.reviews
         })
+
+        Materialize.toast("Review Added!", 3000, "rounded")
+
+        this.refs.textForm.reset()
         
     }
 
@@ -47,7 +52,9 @@ class AddReview extends Component {
             <div className="container">
                 <div className='row'>
                     <div className='col s8 offset-s2'>
-                        <form onSubmit={this.onSubmit}>
+                        <form
+                            ref="textForm" 
+                            onSubmit={this.onSubmit}>
                             <div className="input-field">
                                 <textarea 
                                     onChange={this.onChange}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import $ from "jquery"
 import { db } from "../../../config/firbase-config"
+import $ from "jquery"
 import noImage from "../../../img/movie-banner.jpg"
 import { setReviews } from "../../actions/index-action"
 
@@ -13,6 +13,7 @@ class Reviews extends Component {
             $('.collapsible').collapsible();
         });
 
+        // this.onDelete = this.onDelete.bind(this)
     }
 
     componentDidMount() {
@@ -26,24 +27,20 @@ class Reviews extends Component {
             this.props.setReviews(snap.val())
         })
 
-        // query.on("value", (snap) => {
-        //     snap.forEach((childSnap) => {
-        //         // console.log("ChidlSnap: ", childSnap.val());
-        //         filteredRev.push(childSnap.val())
-        //     })
-        // })
+    }
 
-        // this.setState({
-        //     reviews: filteredRev
-        // })
-        
-
+    onDelete(key) {
+        let reviewsRef = db.ref().child("reviews")
+        reviewsRef.child(key).remove()
+        console.log("delete receive", key);
     }
     
 
     render() {
-        console.log(this.props.reviews);
+        // console.log(this.props.reviews);
         let latestReviews = this.props.reviews
+        let isUser = this.props.users
+        // console.log("isUser: ", this.props.users);
         // console.log(JSON.stringify(Object.keys(latestReviews), null, 3));
         // console.log("Filtered Reviews: ", filteredReviews);
         
@@ -53,24 +50,36 @@ class Reviews extends Component {
                     <div className='col s12'>
                         <ul className="collection with-header">
                             <li className="collection-header"><h4>Reviews</h4></li>
-                            { !latestReviews ? (
-                                <div className=''></div>
-                            ) : (
-                                Object.keys(latestReviews).map((key, index) => {
-                                    // console.log(key);
-                                    const { email, review } = latestReviews[key]
-                                    return(
-                                        <li key={key} className="collection-item avatar">
-                                            <img src={ noImage } alt="" className="circle" />
-                                            <span className="title"><b>{email}</b></span>
-                                            <p>{review}</p>
-                                            <a href="#!" className="secondary-content"><i className="fa fa-trash-o"></i></a>
-                                        </li>
-                                    )
-                                })
-                            ) }
-                            
-
+                            { 
+                                !latestReviews ? (
+                                    <div className=''></div>
+                                ) : (
+                                    Object.keys(latestReviews).map((key, index) => {
+                                        // console.log(key);
+                                        const { email, review } = latestReviews[key]
+                                        return(
+                                            <li key={key} className="collection-item avatar">
+                                                <img src={ noImage } alt="" className="circle" />
+                                                <span className="title"><em>{email}</em></span>
+                                                <p>{review}</p>
+                                                {
+                                                    !isUser ? (
+                                                        <div className=''></div>
+                                                    ) : (
+                                                        <a 
+                                                            href="#!" 
+                                                            className="secondary-content"
+                                                            onClick={this.onDelete.bind(this, key)}
+                                                        >
+                                                            <i className="fa fa-trash-o"></i>
+                                                        </a>
+                                                    )
+                                                }   
+                                            </li>
+                                        )
+                                    })
+                                ) 
+                            }
                         </ul>
                     </div>
                 </div>
@@ -80,8 +89,10 @@ class Reviews extends Component {
 }
 
 function mapStateToProps(state) {
+    // console.log("MSTP REVIEWS: ", state.users);
     return {
-        reviews: state.reviews
+        reviews: state.reviews,
+        users: state.users
     }
 }
 

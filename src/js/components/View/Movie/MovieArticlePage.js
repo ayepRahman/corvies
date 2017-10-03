@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux"
 import LineLoading from "../../ProgressBar/LineLoading"
 import MovieArticleBanner from "./MovieArticleBanner"
 import AddReview from "../../../containers/Reviews/AddReview"
 import Reviews from "../../../containers/Reviews/Reviews"
-import { connect } from "react-redux"
 
 
 class MovieArticle extends Component {
