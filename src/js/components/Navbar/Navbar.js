@@ -41,7 +41,7 @@ class Navbar extends Component {
             <div>
                 
                 <nav>
-                    <div className="nav-wrapper">
+                    <div id="navbarTop" className="nav-wrapper scrollspy">
                         <NavLink to='/' className="brand-logo" href="#">Corvies</NavLink>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>

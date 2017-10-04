@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import firebase from "firebase"
 import { firebaseApp } from "../../../../config/firbase-config";
 import { Link } from "react-router-dom"
+import Materialize from "materialize-css"
 
 class SignupForm extends Component {
     constructor(props) {
@@ -20,12 +21,13 @@ class SignupForm extends Component {
     }
 
     
-    componentWillMount() {
+    componentDidMount() {
         firebaseApp.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({
                     success: "Successfully Register User!"
                 })
+                Materialize.toast("Successfully Login", 4000)
             }
         })
     }

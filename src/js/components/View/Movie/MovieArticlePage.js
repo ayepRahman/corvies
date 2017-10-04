@@ -13,7 +13,7 @@ class MovieArticle extends Component {
         this.state = {
             movieData: {},
             loading: true,
-            // users: null
+
         }
     }
     
@@ -28,7 +28,8 @@ class MovieArticle extends Component {
         // console.log("MOVIE ID:",this.props.match.params);
         const { id } = this.props.match.params
         const { loading } = this.state
-        const { isLogin } = this.props
+        const isLogin = this.props.users.email
+        console.log("islogin:",isLogin);
         // const isUser = this.state.users
 
         // display loading and rerender adter setinterval change to false
@@ -52,10 +53,15 @@ class MovieArticle extends Component {
                         id={id}
                     />
 
-                    <Reviews movieId={ id }/>
+                    <Reviews 
+                        movieId={ id }
+                    />
 
-                    {!isLogin ? (
-                            <div className=''></div>
+                    {
+                        !isLogin ? (
+                            <div className='container'>
+                                <h2>Login to Add Review</h2>
+                            </div>
                         ) : (
                             <AddReview movieId={ id } />
                         )
@@ -74,7 +80,7 @@ class MovieArticle extends Component {
 
 function mapStateToProps(state) {
     return {
-        isLogin: state.users
+        users: state.users
     }
 }
 

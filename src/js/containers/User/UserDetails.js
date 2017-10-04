@@ -17,18 +17,15 @@ class UserDetails extends Component {
 
 
     render() {
-        const { email, displayName } = this.props.users
+        const { email } = this.props.users
         let userChip = null
+        console.log( email );
         
-        if(!displayName && !email) {
+        if(email) {
             userChip = (
                 <div className='chip'>Hi, { email }</div>
             )
-        } else {
-            userChip = (
-                <div className='chip'>Hi, { displayName }</div>
-            )
-        }
+        } 
 
         return (
             <div>

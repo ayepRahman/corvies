@@ -65,7 +65,7 @@ class AddReview extends Component {
                                 </textarea>
                                 <label htmlFor="addReview">Add Review</label>
                             </div>
-                            <button type='submit' className=''>Add</button>
+                            <button type='submit' className='waves-effect waves-light btn'>Submit</button>
                         </form>
                         
                     </div>

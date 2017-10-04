@@ -10,7 +10,6 @@ class PopularMovies extends Component {
         let popularCard = popularMovie.map((data) => {
             return (
                 
-                
                 <div key={data.id} className="col s12 m12 l4">
                     <div className="card horizontal z-depth-4">
                         <div className="card-image">
@@ -37,9 +36,9 @@ class PopularMovies extends Component {
         })
         
         return (
-            <div className="container">
+            <div className="custom-container">
                 <div className='row center-align'>
-                    <h4>Popular Movies</h4>
+                    <h3>Popular Movies</h3>
                 </div>
                 <div className='row'>
                     {popularCard}

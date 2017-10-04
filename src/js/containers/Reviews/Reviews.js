@@ -39,20 +39,24 @@ class Reviews extends Component {
     render() {
         // console.log(this.props.reviews);
         let latestReviews = this.props.reviews
-        let isUser = this.props.users
+        let isUser = this.props.users.email
         // console.log("isUser: ", this.props.users);
         // console.log(JSON.stringify(Object.keys(latestReviews), null, 3));
         // console.log("Filtered Reviews: ", filteredReviews);
         
         return (
-            <div className="container">
+            <div className="custom-container">
                 <div className='row'>
                     <div className='col s12'>
                         <ul className="collection with-header">
                             <li className="collection-header"><h4>Reviews</h4></li>
                             { 
                                 !latestReviews ? (
-                                    <div className=''></div>
+                                    <li className="collection-item">
+                                        <span className="title">
+                                            Reviews not avaible yet
+                                        </span>
+                                    </li>
                                 ) : (
                                     Object.keys(latestReviews).map((key, index) => {
                                         // console.log(key);
@@ -71,7 +75,7 @@ class Reviews extends Component {
                                                             className="secondary-content"
                                                             onClick={this.onDelete.bind(this, key)}
                                                         >
-                                                            <i className="fa fa-trash-o"></i>
+                                                            <i className="fa fa-trash-o fa-2x"></i>
                                                         </a>
                                                     )
                                                 }   

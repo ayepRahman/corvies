@@ -20,6 +20,7 @@ import LoginPage from "../View/Login/LoginPage"
 import Movie from "../View/Movie/MoviePage"
 import MovieArticlePage from "../View/Movie/MovieArticlePage"
 import Footer from "../Footer/Footer"
+import ScrollButton from "../Button/ButtonScrollspy"
 
 // const
 const history = createBrowserHistory()
@@ -78,11 +79,12 @@ class App extends Component {
         <Router history={history} >
           <div>
             <Navbar />
-            <Route exact path="/" component={Home}/>
-            <Route path="/movie" component={Movie} />
-            <Route path="/signup" component={SignupPage}/>
-            <Route path="/login" component={LoginPage}/>
-            <Route path="/article/:id" component={MovieArticlePage}/>
+              <Route exact path="/" component={Home}/>
+              <Route path="/movie" component={Movie} />
+              <Route path="/signup" component={SignupPage}/>
+              <Route path="/login" component={LoginPage}/>
+              <Route path="/article/:id" component={MovieArticlePage}/>
+            <ScrollButton /> 
             <Footer />
           </div>
         </Router>
