@@ -72,7 +72,7 @@ class Reviews extends Component {
                                                     ) : (
                                                         <a 
                                                             href="#!" 
-                                                            className="secondary-content"
+                                                            className="secondary-content "
                                                             onClick={this.onDelete.bind(this, key)}
                                                         >
                                                             <i className="fa fa-trash-o fa-2x"></i>

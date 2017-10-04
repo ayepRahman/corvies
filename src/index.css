@@ -47,6 +47,9 @@ nav .brand-logo {
 .flash-msg h5 {
   color: #e91e63; }
 
+.secondary-content {
+  color: red !important; }
+
 nav {
   background-color: #37474f !important; }
 
