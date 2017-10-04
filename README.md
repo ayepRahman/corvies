@@ -3,6 +3,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Development
+
+- [Create-React-App](https://github.com/facebookincubator/create-react-app)
+- [React.js](https://reactjs.org/)
+- [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+- [Redux](http://redux.js.org/docs/introduction/)
+- [Jquery](https://jquery.com/)
+- [Maerialize](http://materializecss.com/)
+- [Firebase](https://firebase.google.com/)
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)

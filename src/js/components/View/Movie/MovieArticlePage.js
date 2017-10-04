@@ -60,7 +60,7 @@ class MovieArticle extends Component {
                     {
                         !isLogin ? (
                             <div className='container'>
-                                <div className="card-panel yellow accent-1">
+                                <div className="card-panel yellow accent-1 center-align">
                                     <span className="black-text">Please login to add Review</span>
                                 </div>
                             </div>
