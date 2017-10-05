@@ -67,7 +67,7 @@ class Reviews extends Component {
                                                 <span className="title"><em>{email}</em></span>
                                                 <p>{review}</p>
                                                 {
-                                                    !isUser ? (
+                                                    isUser !== email  ? (
                                                         <div className=''></div>
                                                     ) : (
                                                         <a 

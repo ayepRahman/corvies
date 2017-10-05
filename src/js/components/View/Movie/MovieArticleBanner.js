@@ -31,15 +31,18 @@ class MovieArticleBanner extends Component {
 
     render() {
         let movie = this.state.movieData
+        console.log("M.A.B: ", movie);
         
         const { 
             title, 
             release_date, 
-            overview, 
+            overview,
+            runtime, 
             genres,
             vote_average ,
             backdrop_path, 
-            poster_path 
+            poster_path,
+            tagline
         } = movie
 
         let bdImage = {
@@ -50,7 +53,7 @@ class MovieArticleBanner extends Component {
             backgroundPosition: "center"
         }
 
-        // console.log("backdrop: ",backdrop_path);
+        console.log("type of:",typeof genres);
 
         return (
             <div>
@@ -67,12 +70,29 @@ class MovieArticleBanner extends Component {
 
                             <div className='col s12 m8 l6 card-articles'>
                                 <h4>{title}</h4>
+                                { 
+                                    !genres ? (
+                                        <div className=''></div>
+                                    ) : (
+                                        Object.keys(genres).map((key, index) => {
+                                            console.log(genres[key].name);
+                                            const { name } = genres[key]
+                                            return(
+                                                <h6>{name}</h6>
+                                            )
+                                        })
+                                    )
+                                   
+                                }
                                 <ul>
                                     <li><i className="fa fa-calendar-o fa-1x"></i> {release_date}</li>
                                     <li><i className="fa fa-star-o fa-1x"></i>{vote_average}</li>
+                                    <li><i className="fa fa-clock-o fa-1x"></i>{runtime} mins</li>
                                 </ul>
                                 <h5>Overview </h5>
                                 <p>{overview}</p>
+
+
                             </div>
                 
                         </div>
