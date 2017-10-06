@@ -39,7 +39,7 @@ class Reviews extends Component {
     render() {
         // console.log(this.props.reviews);
         let latestReviews = this.props.reviews
-        let isUser = this.props.users.email
+        let isUserEmail = this.props.users.email
         // console.log("isUser: ", this.props.users);
         // console.log(JSON.stringify(Object.keys(latestReviews), null, 3));
         // console.log("Filtered Reviews: ", filteredReviews);
@@ -67,16 +67,16 @@ class Reviews extends Component {
                                                 <span className="title"><em>{email}</em></span>
                                                 <p>{review}</p>
                                                 {
-                                                    isUser !== email  ? (
-                                                        <div className=''></div>
-                                                    ) : (
+                                                    isUserEmail === email  ? (
                                                         <a 
-                                                            href="#!" 
-                                                            className="secondary-content "
-                                                            onClick={this.onDelete.bind(this, key)}
+                                                        href="#!" 
+                                                        className="secondary-content "
+                                                        onClick={this.onDelete.bind(this, key)}
                                                         >
                                                             <i className="fa fa-trash-o fa-2x"></i>
                                                         </a>
+                                                    ) : (
+                                                       <div className=''></div>
                                                     )
                                                 }   
                                             </li>
