@@ -78,7 +78,10 @@ class MovieArticleBanner extends Component {
                                             console.log(genres[key].name);
                                             const { name } = genres[key]
                                             return(
-                                                <h6>{name}</h6>
+                                                <ul className="custom-list">
+                                                    <li className=''>{name}</li>
+                                                </ul>
+                                                
                                             )
                                         })
                                     )

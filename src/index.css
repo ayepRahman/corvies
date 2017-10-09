@@ -44,6 +44,11 @@ nav .brand-logo {
   background: linear-gradient(#141414, rgba(20, 20, 20, 0.5));
   z-index: -1; }
 
+.custom-list {
+  list-style-type: none !important; }
+  .custom-list li {
+    display: inline !important; }
+
 .flash-msg h5 {
   color: #e91e63; }
 
