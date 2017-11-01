@@ -48,7 +48,7 @@ class Reviews extends Component {
             <div className="custom-container">
                 <div className='row'>
                     <div className='col s12'>
-                        <ul className="collection with-header ">
+                        <ul className="collection with-header">
                             <li className="collection-header"><h4>Reviews</h4></li>
                             { 
                                 !latestReviews ? (

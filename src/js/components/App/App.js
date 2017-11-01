@@ -59,7 +59,7 @@ class App extends Component {
     // User Authentication / Routing
     firebaseApp.auth().onAuthStateChanged( user => {
       if (user) {
-        console.log("User Sign In " + user );
+        console.log("User Sign In " , user );
         // keys/values from firebase
         const { displayName , email  } = user
         store.dispatch( logUser(displayName , email) )
